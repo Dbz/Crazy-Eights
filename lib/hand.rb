@@ -17,13 +17,13 @@ class Hand
     @cards.each do |c|
       cards << c if c.suit == top_card.suit || c.eights_value == top_card.eights_value || c.eights_value == 8
     end
-    cards = []
+    cards
   end
   
   def display(cards)
     str = ""
     cards.each_with_index do |card, i|
-      str += "(#{i})|#{card.value}#{card.SUITS_STRING[suit]}|   "
+      str += "(#{i})|#{card.to_s}|"
     end
     puts str
   end
@@ -33,7 +33,7 @@ class Hand
   end
   
   def return_cards(deck)
-    @cards.count.times do { deck.return(card.shift) }
+    @cards.count.times { deck.return(card.shift) }
   end
   
 end

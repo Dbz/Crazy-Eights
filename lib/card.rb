@@ -77,4 +77,8 @@ class Card
   def to_s
     VALUE_STRINGS[value] + SUIT_STRINGS[suit]
   end
+  
+  def dup
+    Card.new(@suit, @value)
+  end
 end

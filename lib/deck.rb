@@ -13,8 +13,8 @@ class Deck
     deck
   end
   
-  def initialize(cards = Deck.all_cards)
-    @cards = cards
+  def initialize(n = 1)
+    @cards = Deck.all_cards(n)
   end
   
   def take(n)
@@ -27,7 +27,7 @@ class Deck
   end
   
   def top
-    @cards.first
+    @cards.shift
   end
   
   def shuffle!
