@@ -5,7 +5,11 @@ class CardError < TypeError
 end
 
 class Player
-  attr_accessor :hand
+  attr_accessor :hand, :name
+  
+  def initialize(name)
+    @name = name
+  end
 
   def choose_card(deck, top_card)
     puts "The top card is #{top_card.to_s}"

@@ -22,6 +22,7 @@ class Game
     top_card = @deck.top
     until game_over?
       player = @players.shift
+      puts "Hello, #{player.name}, it is your turn"
       @discard.return(top_card.dup)
       top_card = player.choose_card(@deck, top_card)
       @players << player
@@ -34,5 +35,5 @@ class Game
   
 end
 
-game = Game.new([Player.new, Player.new])
+game = Game.new([Player.new("Bert"), Player.new("Ernie")])
 game.play
