@@ -23,7 +23,7 @@ class Card
     :queen => "Q",
     :king  => "K",
     :ace   => "A",
-    :joker => "JJ"
+    :joker => "J"
   }
 
   EIGHTS_VALUE = {
