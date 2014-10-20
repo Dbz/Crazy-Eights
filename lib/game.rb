@@ -28,7 +28,7 @@ class Game
   end
   
   def game_over?
-    @players.any? { |player| player.hand.cards == 0 }
+    @players.any? { |player| player.hand.cards.empty? }
   end
   
 end

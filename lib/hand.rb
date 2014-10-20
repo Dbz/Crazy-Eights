@@ -29,12 +29,4 @@ class Hand
     puts str
   end
   
-  # def discard(deck, card)
-  #   deck.return(card)
-  # end
-  
-  def return_cards(deck)
-    @cards.count.times { deck.return(card.shift) }
-  end
-  
 end

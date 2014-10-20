@@ -23,10 +23,6 @@ class Deck
     @cards.shift(n)
   end
   
-  def return(card)
-    @cards = [card] + @cards
-  end
-  
   def top
     @cards.shift
   end
