@@ -18,17 +18,17 @@ class Game
   def play
     @deck.shuffle!
     @players.each { |player| player.hand = Hand.new(@deck.take(8)) }
-    top_card = @deck.top
+    @top_card = @deck.top
     until game_over?
       player = @players.shift
       puts "Hello, #{player.name}, it is your turn"
-      top_card = player.choose_card(@deck, top_card)
+      @top_card = player.choose_card(@deck, top_card)
       @players << player
     end
   end
   
   def game_over?
-    @players.any? { |player| player.hand.cards.empty? }
+    @players.any? { |player| player.hand.cards.empty? } || @players.all? { |player| player.hand.options(@top_card).empty? }
   end
   
 end
