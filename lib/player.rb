@@ -1,8 +1,6 @@
-# require_relative 'hand.rb'
-require_relative 'card.rb'
 
-class CardError < TypeError
-end
+require_relative 'card.rb'
+require_relative 'error.rb'
 
 class Player
   attr_accessor :hand, :name
@@ -21,7 +19,7 @@ class Player
         puts "You have no choice but to draw!"
         @hand.cards += deck.take(1)
       end
-    rescue "not enough cards"
+    rescue CardError => e
       puts "There are no more cards in the deck, so you have to pass!"
       return top_card
     end

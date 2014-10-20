@@ -1,4 +1,5 @@
 require_relative 'card.rb'
+require_relative 'CardError.rb'
 
 class Deck
   def self.all_cards(n = 1)
@@ -18,7 +19,7 @@ class Deck
   end
   
   def take(n)
-    raise "not enough cards" if n > @cards.count
+    raise CardError.new "not enough cards" if n > @cards.count
     @cards.shift(n)
   end
   
