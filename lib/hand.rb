@@ -21,17 +21,17 @@ class Hand
     cards
   end
   
-  def display(cards)
+  def display(cards, numbers = true)
     str = ""
     cards.each_with_index do |card, i|
-      str += "(#{i})|#{card.to_s}|"
+      str += "#{"(#{i.to_s})" if numbers}|#{card.to_s}|"
     end
     puts str
   end
   
-  def discard(deck, card)
-    deck.return(card)
-  end
+  # def discard(deck, card)
+  #   deck.return(card)
+  # end
   
   def return_cards(deck)
     @cards.count.times { deck.return(card.shift) }

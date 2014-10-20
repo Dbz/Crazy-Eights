@@ -12,7 +12,7 @@ class Player
   def choose_card(deck, top_card)
     puts "The top card is #{top_card.to_s}"
     print "Your hand is "
-    @hand.display(@hand.cards)
+    @hand.display(@hand.cards, false)
     
     begin
       while @hand.options(top_card).empty?
@@ -27,8 +27,16 @@ class Player
     print "Your choices are: "
     options = @hand.options(top_card)
     @hand.display(options)
-    puts "Please type the number of the card that you would like to play"
-    input = gets.chomp.to_i
+    
+    begin
+      puts "Please type the number of the card that you would like to play"
+      input = gets.chomp.to_i
+      raise CardError.new "That is not a card number" if input >= options.count
+    rescue CardError => e
+      puts e
+      retry
+    end
+    
     card = options[input]
     @hand.cards.delete(card)
     
