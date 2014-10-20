@@ -22,7 +22,8 @@ class Card
     :jack  => "J",
     :queen => "Q",
     :king  => "K",
-    :ace   => "A"
+    :ace   => "A",
+    :joker => "JJ"
   }
 
   EIGHTS_VALUE = {
@@ -38,7 +39,7 @@ class Card
     :jack  => 10,
     :queen => 10,
     :king  => 10,
-    :joker => 8
+    :joker => 1
   }
 
   # Returns an array of all suits.

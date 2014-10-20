@@ -14,9 +14,10 @@ class Hand
   
   def options(top_card)
     cards = []
-    @cards.each do |c|
-      cards << c if c.suit == top_card.suit || c.eights_value == top_card.eights_value || c.eights_value == 8
+    @cards.each do |c| # Correct suit | Correct value | Eight | Joker
+      cards << c if c.suit == top_card.suit || c.eights_value == top_card.eights_value || c.eights_value == 8 || c.eights_value == 1
     end
+    cards = @cards if top_card.eights_value == 1 # Joker
     cards
   end
   
