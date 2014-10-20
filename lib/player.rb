@@ -35,10 +35,11 @@ class Player
     if card.eights_value == 8
       begin
         puts "Please choose the suit: #{Card.suits.map(&:to_s)}"
-        input = gets.chomp.downcase.to_sym
-        raise CardError.new "Not valid input" if Card.suits.map(&:to_s).include? input
+        input = gets.chomp.downcase
+        raise CardError.new "That's not the name of a suit!" unless Card.suits.map(&:to_s).include? input
         card = Card.new(input.to_sym, card.value)
       rescue CardError => e
+        puts e
         retry
       end
     end

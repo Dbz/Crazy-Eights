@@ -1,5 +1,5 @@
 require_relative 'card.rb'
-require_relative 'CardError.rb'
+#require_relative 'CardError.rb'
 
 class Deck
   def self.all_cards(n = 1)
