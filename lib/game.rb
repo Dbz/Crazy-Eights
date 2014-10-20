@@ -8,7 +8,6 @@ require_relative 'player.rb'
 class Game
   def initialize(players)
     @players = players
-    @discard = Deck.new(0)
     if @players.count > 5
       @deck = Deck.new(2)
     else
@@ -23,7 +22,6 @@ class Game
     until game_over?
       player = @players.shift
       puts "Hello, #{player.name}, it is your turn"
-      @discard.return(top_card.dup)
       top_card = player.choose_card(@deck, top_card)
       @players << player
     end
